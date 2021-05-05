@@ -4,37 +4,11 @@
 
 <p><%= link_to 'New Ip', new_ip_path, class: "btn btn-secondary btn-sm" %></p>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Hostname</th>
-      <th>Ip address</th>
-      <th>Plug</th>
-      <th>Room</th>
-      <th>Device</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ips.each do |ip| %>
-      <tr>
-        <td><%= ip.hostname %></td>
-        <td><%= ip.ip_address %></td>
-        <td><%= ip.plug %></td>
-        <td><%= ip.room.name %></td>
-        <td><%= ip.device.name %></td>
-        <td><%= link_to '<button type="button" class="btn btn-info btn-sm">
-          <span class="material-icons">edit</span></button>'.html_safe,
-          edit_ip_path(ip) %>
-
-          <%= link_to '<button type="button" class="btn btn-danger btn-sm">
-          <span class="material-icons">clear</span></button>'.html_safe,
-           ip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% unless @view %>
+  <%= render "list_view" %>
+<% else %>
+  <%= render "organized_view" %>
+<% end %>
 
 <br>
 

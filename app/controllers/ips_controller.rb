@@ -5,7 +5,19 @@ class IpsController < ApplicationController
 
   # GET /ips or /ips.json
   def index
-    @ips = Ip.all
+    @view = (params[:view])
+    unless @view
+      @ips = Ip.all.order(:ip_address, :room, :hostname)
+    else
+      @services = Service.order(:floor, :name)
+      @sectors = Sector.order(:name)
+      get_rooms
+      get_devices
+      @ips = Hash.new
+      @rooms.each do |room|
+        @ips[room] = Ip.where(room: room).order(:hostname)
+      end
+    end
   end
 
   # GET /ips/1 or /ips/1.json
