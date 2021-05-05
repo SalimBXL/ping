@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Devices</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @devices.each do |device| %>
+      <tr>
+        <td><%= device.name.capitalize %></td>
+        <td>
+          <%= link_to '<button type="button" class="btn btn-info btn-sm">
+          <span class="material-icons">edit</span></button>'.html_safe,
+          edit_device_path(device) %>
+        
+          <%= link_to '<button type="button" class="btn btn-danger btn-sm">
+          <span class="material-icons">clear</span></button>'.html_safe, 
+          device, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Device', new_device_path, class: "btn btn-secondary btn-sm"  %>

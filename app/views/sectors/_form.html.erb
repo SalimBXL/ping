@@ -1,0 +1,29 @@
+<%= form_with(model: sector, local: true) do |form| %>
+  <% if sector.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sector.errors.count, "error") %> prohibited this sector from being saved:</h2>
+
+      <ul>
+        <% sector.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Couloir Serge" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :service_id %>
+    <%= form.select :service_id, 
+      @services.collect {|p| ["#{p.name} #{p.floor}", p.id]}, {include_blank: true}, 
+    class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>
