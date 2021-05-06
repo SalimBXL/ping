@@ -6,6 +6,7 @@
       <th>Hostname</th>
       <th>Room</th>
       <th>Device</th>
+      <th>Operating System</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +15,18 @@
     <% @ips.each do |ip| %>
       <tr>
 
-        <td><%= ip.ip_address %></td>
+        <td>
+          <% if params[:ping] %>
+            <% if ip.ping %>
+              <span class="material-icons text-success">radio_button_checked</span>
+            <% else %>
+              <span class="material-icons text-danger">radio_button_unchecked</span>
+            <% end %>
+          <% end %>
         
+          <%= ip.ip_address %>
+        </td>
+
         <td>
           <% if ip.plug %>
             <%= ip.plug %>
@@ -29,6 +40,8 @@
         <td><%= ip.room.name.capitalize %></td>
 
         <td><%= ip.device.name.capitalize %></td>
+
+        <td><%= ip.operating_system.name.capitalize %></td>
         
 
         <td><%= link_to '<button type="button" class="btn btn-info btn-sm">

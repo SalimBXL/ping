@@ -23,8 +23,8 @@ devices = Device.create([
 ])
 
 services = Service.create([
-    {name: "cylotron", floor: -1},
-    {name: "cylotron", floor: -2},
+    {name: "cyclotron", floor: -1},
+    {name: "cyclotron", floor: -2},
     {name: "isotopes", floor: 4},
     {name: "petscan", floor: -1},
     {name: "petscan", floor: -2}
