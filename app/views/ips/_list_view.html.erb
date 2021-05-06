@@ -13,12 +13,24 @@
   <tbody>
     <% @ips.each do |ip| %>
       <tr>
+
         <td><%= ip.ip_address %></td>
-        <td><%= ip.plug %></td>
-        <td><%= ip.hostname %></td>
-        <td><%= ip.room.name %></td>
-        <td><%= ip.device.name %></td>
         
+        <td>
+          <% if ip.plug %>
+            <%= ip.plug %>
+          <% else %>
+            <%= "- -" %>
+          <% end %>
+        </td>
+
+        <td><span class="text-info"><%= ip.hostname.upcase %></span></td>
+
+        <td><%= ip.room.name.capitalize %></td>
+
+        <td><%= ip.device.name.capitalize %></td>
+        
+
         <td><%= link_to '<button type="button" class="btn btn-info btn-sm">
           <span class="material-icons">edit</span></button>'.html_safe,
           edit_ip_path(ip) %>
