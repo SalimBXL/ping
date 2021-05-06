@@ -4,6 +4,8 @@ class Ip < ApplicationRecord
 
     belongs_to :room
     belongs_to :device
+    belongs_to :operating_system
+    
     validates_presence_of :hostname, uniqueness: true 
     validates_presence_of :ip_address, uniqueness: true 
     validates_presence_of :room_id

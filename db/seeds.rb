@@ -51,8 +51,8 @@ rooms = Room.create([
 ])
 
 ips = Ip.create([
-    {hostname: "spermix", ip_address: "164.15.145.192", plug: "17.6", room_id: 1, device_id: 1},
-    {hostname: "phoenix", ip_address: "164.15.145.138", plug: "38.5", room_id: 1, device_id: 3},
+    {hostname: "spermix", ip_address: "164.15.145.192", plug: "17.6", room_id: 1, device_id: 1, operating_system_id: 1},
+    {hostname: "phoenix", ip_address: "164.15.145.138", plug: "38.5", room_id: 1, device_id: 3, operating_system_id: 1},
     {hostname: "petix", ip_address: "164.15.145.154", room_id: 3, device_id: 3},
-    {hostname: "verdabenk", ip_address: "164.15.145.155", room_id: 4, device_id: 3}
+    {hostname: "verdabenk", ip_address: "164.15.145.155", room_id: 4, device_id: 3, operating_system_id: 1}
 ])
