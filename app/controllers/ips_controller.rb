@@ -5,7 +5,9 @@ class IpsController < ApplicationController
 
   # GET /ips or /ips.json
   def index
+
     @view = (params[:view])
+
     unless @view
       @ips = Ip.all.order(:ip_address, :room, :hostname)
     else
