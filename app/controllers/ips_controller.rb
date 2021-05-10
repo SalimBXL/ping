@@ -2,6 +2,7 @@ class IpsController < ApplicationController
   before_action :set_ip, only: %i[ show edit update destroy ]
   before_action :get_rooms, only: [:new, :edit, :create]
   before_action :get_devices, only: [:new, :edit, :create]
+  before_action :get_operating_systems, only: [:new, :edit, :create]
 
   # GET /ips or /ips.json
   def index
@@ -88,5 +89,9 @@ class IpsController < ApplicationController
 
     def get_devices
       @devices = Device.order(:name)
+    end
+
+    def get_operating_systems
+      @operating_systems = OperatingSystem.order(:name)
     end
 end
