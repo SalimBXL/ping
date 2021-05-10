@@ -79,7 +79,7 @@ class IpsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ip_params
-      params.require(:ip).permit(:hostname, :ip_address, :plug, :room_id, :device_id)
+      params.require(:ip).permit(:hostname, :ip_address, :plug, :room_id, :device_id, :operating_system_id)
     end
 
     def get_rooms
